@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/chrismintan/chrismintan.github.io/issues"
   },
-  "homepage": "https://github.com/chrismintan/chrismintan.github.io#readme",
+  "homepage": "https://chrismintan.github.io/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "sass": "^1.15.1"
