@@ -97,14 +97,14 @@ function appendNotOnion() {
 
   if ( document.getElementById('headline1').textContent == "" ) {
     article1(image_url, titleCase(headline));
-    onion = 1;
+    notOnion = 1;
     document.getElementById('article1').addEventListener('click', plus);
     document.getElementById('article1').addEventListener('click', colorizeGreen1);
     document.getElementById('article1').style.cursor = 'pointer';
 
   } else {
     article2(image_url, titleCase(headline));
-    onion = 2;
+    notOnion = 2;
     document.getElementById('article2').addEventListener('click', plus);
     document.getElementById('article2').addEventListener('click', colorizeGreen2);
     document.getElementById('article2').style.cursor = 'pointer';
