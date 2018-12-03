@@ -71,14 +71,14 @@ function appendOnion() {
 
   if ( document.getElementById('headline1').textContent == "" ) {
     article1(image_url, titleCase(headline));
-    onion = 1;
+    onion = 2;
     document.getElementById('article1').addEventListener('click', minus);
     document.getElementById('article1').addEventListener('click', colorizeRed1);
     document.getElementById('article1').style.cursor = 'pointer';
 
   } else {
     article2(image_url, titleCase(headline));
-    onion = 2;
+    onion = 1;
     document.getElementById('article2').addEventListener('click', minus);
     document.getElementById('article2').addEventListener('click', colorizeRed2);
     document.getElementById('article2').style.cursor = 'pointer';
