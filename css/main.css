@@ -252,7 +252,8 @@ main {
   color: #333; }
 
 #modal1 {
-  background: #8ac8f5; }
+  background: #8ac8f5; 
+}
 
 #modal2 {
   background: url("../img/project2-background.png"); }
@@ -285,7 +286,7 @@ main {
   color: black; }
 
 #myCanvas {
-  z-index: 999;
+  z-index: 9999;
   height: 300px;
   width: 300px; }
 

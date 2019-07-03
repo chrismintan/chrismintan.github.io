@@ -20,12 +20,13 @@ function shuffle() {
 shuffle();
 
 function initShadow() {
-  let interval = setInterval(function(){
-    drawShadow();
-  }, 5)
-  setTimeout(function(){
-    clearInterval(interval)
-  }, 2000)
+  // let interval = setInterval(function(){
+  //   drawShadow();
+  // }, 5)
+  // setTimeout(function(){
+  //   clearInterval(interval)
+  // }, 2000)
+  drawShadow();
 }
 
 function drawShadow() {
@@ -36,16 +37,18 @@ function drawShadow() {
   shownImage.src = `img/projects/sprites/${order[0]}.png`;
   shownImage.setAttribute("crossorigin", "Anonymous");
 
-  ctx.drawImage(shownImage, 0, 0, canvas.width, canvas.height);
-  var baseImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  for ( let i = 0; i < baseImage.data.length; i+=4 ) {
-    if( baseImage.data[i] >= 1 || baseImage.data[i+1] >= 1 || baseImage.data[i+2] >= 1)  {
-      baseImage.data[i] = 0;
-      baseImage.data[i+1] = 0;
-      baseImage.data[i+2] = 0;
-    };
+  shownImage.onload = () => {
+    ctx.drawImage(shownImage, 0, 0, canvas.width, canvas.height);
+    var baseImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    for ( let i = 0; i < baseImage.data.length; i+=4 ) {
+      if( baseImage.data[i] >= 1 || baseImage.data[i+1] >= 1 || baseImage.data[i+2] >= 1)  {
+        baseImage.data[i] = 0;
+        baseImage.data[i+1] = 0;
+        baseImage.data[i+2] = 0;
+      };
+    }
+    ctx.putImageData( baseImage, 0, 0 );
   }
-  ctx.putImageData( baseImage, 0, 0 );
 }
 
 function revealPokemon() {
@@ -54,7 +57,9 @@ function revealPokemon() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   shownImage = new Image();
   shownImage.src = `img/projects/sprites/${order[0]}.png`;
-  ctx.drawImage(shownImage, 0, 0, canvas.width, canvas.height);
+  shownImage.onload = () => {
+    ctx.drawImage(shownImage, 0, 0, canvas.width, canvas.height);
+  }
 }
 
 function clearCanvas() {
@@ -71,6 +76,7 @@ function nameCheck() {
     setTimeout(function() {
       clearCanvas();
       initShadow();
+      console.log('123')
       $("#project1-input").val("");
     }, 1000)
   }
